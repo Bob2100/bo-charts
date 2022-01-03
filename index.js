@@ -11,6 +11,6 @@ const install = function (Vue) {
     Vue.component(component.name, component)
   })
 }
-module.exports = {
+export default {
   install
 }
