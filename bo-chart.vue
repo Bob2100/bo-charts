@@ -1,5 +1,7 @@
 <template>
-  <div ref="chart" class="bo-chart"></div>
+  <div class="bo-chart">
+    <div ref="chart" class="chart-el"></div>
+  </div>
 </template>
 
 <script>
@@ -77,5 +79,9 @@ export default {
   width: 100%;
   min-height: 50px;
   min-width: 50px;
+}
+.chart-el {
+  height: 100%;
+  width: 100%;
 }
 </style>
