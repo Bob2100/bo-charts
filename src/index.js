@@ -1,12 +1,6 @@
-import BoChart from './src/bo-chart.vue'
-import BoRadarChart from './src/bo-radar-chart.vue'
-import BoLineChart from './src/bo-line-chart.vue'
-const components = [BoChart, BoRadarChart, BoLineChart]
-const install = function (Vue) {
-  components.map((component) => {
-    Vue.component(component.name, component)
-  })
+import BoChart from './bo-chart.vue'
+
+BoChart.install = function (Vue) {
+  Vue.component(BoChart.name, BoChart)
 }
-export default {
-  install,
-}
+export default BoChart
