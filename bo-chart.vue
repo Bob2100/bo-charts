@@ -7,6 +7,7 @@ import { debounce } from "throttle-debounce";
 import * as echarts from 'echarts'
 
 export default {
+  inheritAttrs: false,
   name: "bo-chart",
   data() {
     return {
