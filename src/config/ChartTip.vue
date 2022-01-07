@@ -1,64 +1,68 @@
 <template>
   <div class="ChartTip">
-    <div class="title">{{title}}</div>
+    <div class="title">{{ title }}</div>
     <div :style="cssVars">
-      <div v-for="(param,index) in params" :key="index" class="line-serie">
+      <div v-for="(param, index) in params" :key="index" class="line-serie">
         <span>
-          <span class="icon" :style="{'background-color':param.color}"></span>
-          <span class="label">{{getLabel(param)}}</span>
+          <span
+            class="icon"
+            :style="{ 'background-color': param.color }"></span>
+          <span class="label">{{ getLabel(param) }}</span>
         </span>
-        <span class="value">{{getValue(param)}}</span>
+        <span class="value">{{ getValue(param) }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import utils from "../utils";
+import utils from '../utils'
 import { CHART_TYPES } from './index'
 export default {
-  name: "ChartTip",
+  name: 'ChartTip',
   props: {
     params: Array,
   },
   computed: {
     subType() {
-      return this.params[0].componentSubType;
+      return this.params[0].componentSubType
     },
     isLikePie() {
-      return [CHART_TYPES.pie, CHART_TYPES.radar].indexOf(this.subType) !== -1;
+      return [CHART_TYPES.pie, CHART_TYPES.radar].indexOf(this.subType) !== -1
     },
     title() {
       if (this.isLikePie) {
-        return this.params[0].seriesName;
+        return this.params[0].seriesName
       }
-      return this.params[0].axisValueLabel;
+      return this.params[0].axisValueLabel
     },
     cssVars() {
       return {
         '--iconSize': `${this.isLikePie ? 4 : 10}px`,
       }
-    }
+    },
   },
   methods: {
     getLabel(param) {
       if (this.isLikePie) {
-        return param.name;
+        return param.name
       }
-      return param.seriesName;
+      return param.seriesName
     },
     getValue(param) {
-      const data = param.data;
+      const data = param.data
       if (!param.vConfig) {
-        return data;
+        return data
       }
-      return this.format(data, param.vConfig);
+      return this.format(data, param.vConfig)
     },
     format(val, vConfig) {
-      return `${utils.number.format(val, { unit: vConfig.unit })}${vConfig.unitLabel || ''}`;
-    }
+      return `${utils.number.format(val, { unit: vConfig.unit })}${
+        vConfig.unitLabel || ''
+      }`
+    },
   },
-};
+}
 </script>
 
 <style scoped>

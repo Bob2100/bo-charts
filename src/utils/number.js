@@ -20,49 +20,51 @@ export default {
    * isWithThousandMark：默认为true，会给数字添加千分位符，
    *   并且最终返回值的类型是字符串；false，则不添加且返回值的类型仍是数字。
    * @returns {Number ｜ String} 转换后的值
-  */
+   */
   format(num, config = {}) {
-    let { unit, point, isFormatZero, isWithThousandMark } = config;
+    let { unit, point, isFormatZero, isWithThousandMark } = config
     if (typeof isFormatZero !== 'boolean') {
-      isFormatZero = false;
+      isFormatZero = false
     }
-    num = isNaN(num) ? 0 : num;
+    num = isNaN(num) ? 0 : num
     if (num === 0 && isFormatZero) {
-      return '--';
+      return '--'
     }
-    unit = parseInt(unit, 10);
+    unit = parseInt(unit, 10)
     if (isNaN(unit)) {
-      unit = 0;
+      unit = 0
     }
-    point = parseInt(point, 10);
+    point = parseInt(point, 10)
     if (isNaN(point) || point < 0) {
-      point = 2;
+      point = 2
     }
     if (typeof isWithThousandMark !== 'boolean') {
-      isWithThousandMark = true;
+      isWithThousandMark = true
     }
-    num = (Math.round(num * Math.pow(10, point - unit)) / Math.pow(10, point)).toFixed(point);
+    num = (
+      Math.round(num * Math.pow(10, point - unit)) / Math.pow(10, point)
+    ).toFixed(point)
     if (isWithThousandMark) {
-      return this.withThousandMark(num);
+      return this.withThousandMark(num)
     }
-    return num;
+    return num
   },
   /**
    * @description 把数字格式化成带千分位符的字符串
    * @param {num: Number} 待格式化的数字
    * @returns {String} 带千分位符的字符串
-  */
+   */
   withThousandMark(num) {
-    const tempArr = Array.from(num);
-    let pointIndex = tempArr.indexOf('.');
+    const tempArr = Array.from(num)
+    let pointIndex = tempArr.indexOf('.')
     if (pointIndex === -1) {
-      pointIndex = tempArr.length;
+      pointIndex = tempArr.length
     }
-    let tempIndex = pointIndex - 3;
+    let tempIndex = pointIndex - 3
     while (tempIndex > 0) {
-      tempArr.splice(tempIndex, 0, ',');
-      tempIndex = tempIndex - 3;
+      tempArr.splice(tempIndex, 0, ',')
+      tempIndex = tempIndex - 3
     }
-    return tempArr.join('');
-  }
+    return tempArr.join('')
+  },
 }
