@@ -8,7 +8,15 @@
     "prepare": "husky install"
   },
   "author": "Bob.Wu",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bob2100/bo-charts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bob2100/bo-charts/issues"
+  },
+  "homepage": "https://bob2100.github.io",
   "dependencies": {
     "echarts": "^5.2.2"
   },
