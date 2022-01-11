@@ -17,6 +17,10 @@
     "url": "https://github.com/Bob2100/bo-charts/issues"
   },
   "homepage": "https://bob2100.github.io/#/UseBoCharts",
+  "keywords": [
+    "vue",
+    "echarts"
+  ],
   "dependencies": {
     "echarts": "^5.2.2"
   },
