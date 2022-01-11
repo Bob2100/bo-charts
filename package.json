@@ -19,7 +19,12 @@
   "homepage": "https://bob2100.github.io/#/UseBoCharts",
   "keywords": [
     "vue",
-    "echarts"
+    "echarts",
+    "chart",
+    "charts",
+    "图表",
+    "vue图表组件",
+    "echarts图表组件"
   ],
   "dependencies": {
     "echarts": "^5.2.2"
