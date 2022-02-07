@@ -19,7 +19,7 @@ export default {
    * isFormatZero: 默认为false，0还是0；true，0会转成 -- 。
    * isWithThousandMark：默认为true，会给数字添加千分位符，
    *   并且最终返回值的类型是字符串；false，则不添加且返回值的类型仍是数字。
-   * @returns {Number ｜ String} 转换后的值
+   * @returns {Number | String} 转换后的值
    */
   format(num, config = {}) {
     let { unit, point, isFormatZero, isWithThousandMark } = config
