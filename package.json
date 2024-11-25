@@ -1,6 +1,6 @@
 {
   "name": "bo-charts",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "echarts图表的vue组件",
   "main": "src/index.js",
   "scripts": {
