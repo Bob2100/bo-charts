@@ -55,22 +55,7 @@ export default {
       this.chart.on('click', (params) => this.$emit('click-event', params))
     },
     setOption() {
-      if (!this.series || this.series.length === 0) {
-        this.chart.clear()
-        return
-      }
-      if (!this.series[0].data || this.series[0].data.length === 0) {
-        this.chart.clear()
-        return
-      }
-      if (
-        this.series[0].data[0] &&
-        this.series[0].data[0].value &&
-        this.series[0].data[0].value.length === 0
-      ) {
-        this.chart.clear()
-        return
-      }
+      this.chart.clear()
       this.chart.setOption(this.$attrs)
     },
   },
