@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { debounce } from 'throttle-debounce'
-import * as echarts from 'echarts'
+import debounce from './utils/debounce'
+import { init } from 'echarts'
 
 export default {
   inheritAttrs: false,
@@ -51,7 +51,7 @@ export default {
       window.removeEventListener('resize', this.LISTENER_HOOKS.resize)
     },
     initChart() {
-      this.chart = echarts.init(this.$refs.chart)
+      this.chart = init(this.$refs.chart)
       this.chart.on('click', (params) => this.$emit('click-event', params))
     },
     setOption() {
