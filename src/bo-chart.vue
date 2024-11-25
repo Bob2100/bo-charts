@@ -15,7 +15,7 @@ export default {
     return {
       chart: null,
       LISTENER_HOOKS: {
-        resize: debounce(400, false, () => {
+        resize: debounce(() => {
           this.chart && this.chart.resize()
         }),
       },
